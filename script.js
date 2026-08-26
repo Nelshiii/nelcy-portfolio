@@ -5,6 +5,39 @@
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
 
+const firstName = document.querySelector(".typing-first-name");
+const lastName = document.querySelector(".typing-last-name");
+
+const typeText = (element, text, delay = 170) => {
+    return new Promise(resolve => {
+        let characterIndex = 0;
+
+        const typeNextCharacter = () => {
+            element.textContent += text[characterIndex];
+            characterIndex += 1;
+
+            if (characterIndex < text.length) {
+                setTimeout(typeNextCharacter, delay);
+            } else {
+                resolve();
+            }
+        };
+
+        typeNextCharacter();
+    });
+};
+
+const startNameTyping = async () => {
+    if (!firstName || !lastName) {
+        return;
+    }
+
+    await typeText(firstName, "Nelcy");
+    await typeText(lastName, "Cabacang");
+};
+
+startNameTyping();
+
 const updateActiveNav = () => {
 
     let currentSection = "";
