@@ -225,10 +225,27 @@ img {
     color: var(--primary-dark);
 
     margin-bottom: 18px;
+
+    white-space: nowrap;
 }
 
 .hero h1 span {
     color: var(--primary);
+}
+
+.hero h1 .typing-first-name {
+    color: var(--primary-dark);
+}
+
+.hero h1::after {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 0.85em;
+    margin-left: 8px;
+    vertical-align: -0.05em;
+    background: var(--secondary);
+    animation: blink 0.8s step-end infinite;
 }
 
 .hero h2 {
@@ -923,6 +940,16 @@ img {
     margin-bottom: 8px;
 }
 
+.education-honor {
+    color: var(--secondary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
 .education-school {
     color: var(--muted);
 
@@ -1210,6 +1237,8 @@ img {
     border-top: 1px solid var(--border);
 
     color: var(--primary);
+
+    z-index: 2;
 
     font-size: 11px;
 
@@ -1979,6 +2008,20 @@ footer {
         flex-direction: column;
 
         text-align: center;
+    }
+
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
     }
 
 }
